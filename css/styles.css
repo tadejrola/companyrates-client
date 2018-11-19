@@ -1,0 +1,76 @@
+﻿#pripombeGlyph{
+    font-size:20px;
+    top:20px;
+}
+
+body
+{
+    background-color:white;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#CB_anonimen
+{
+    height:15px;
+    width:15px;
+}
+
+.navbar-inverse{
+    background-color:#1A2930;
+    border-color:#1A2930;
+    
+}
+
+.navbar-inverse .navbar-brand{
+    color:#C5C1C0;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color:#C5C1C0;
+}
+
+.btn-primary{
+    background-color: #1A2930;
+    border-color:#1A2930;
+    color: #C5C1C0;
+}
+
+.btn-primary:hover{
+    background-color: #0A1612;
+    border-color:#1A2930;
+    color: #C5C1C0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd):hover{
+    background-color:#1A2930;
+    border-color:#1A2930;
+    color: #C5C1C0;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus
+{
+    background-color: #1A2930;
+    border-color:#1A2930;
+    color: #C5C1C0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd){
+    background-color: #C5C1C0;
+    border-color:#C5C1C0;
+    color: #1A2930;
+}
+
+.far{
+    font-size:30px;
+}
+.fa-comments {
+    color: #f9edbe;
+}
+
+.fa-thumbs-up{
+    color:green;
+}
+
+.fa-thumbs-down{
+    color:red;
+}

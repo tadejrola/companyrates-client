@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Index - CompanyRates</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <link rel="stylesheet" href="./css/Site.css">
+    <link rel="stylesheet" href="./css/Menu.css">
+</head>
+
+<body>
+
+    <!-- <nav class="sidenav navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Index.html">CompanyRates</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Companies <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="Index.html">List of companies</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Registration.html"><span class="glyphicon glyphicon-user"></span>Registration</a></li>
+                    <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+    <div class="sidenav">
+        <center> <a href="">
+                LOGO</a> </center> <br />
+
+        <a href="Index.html">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"> </span>
+            Companies
+        </a>
+        <a href="About.html">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"> </span>
+            About us
+        </a>
+        <a href="Contact.html">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span>
+            Contact
+        </a>
+        <a href="Profile.html">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+            My profile
+        </a>
+        <hr>
+
+        <a href="Login.html">
+            <span class="glyphicon glyphicon-log-in" aria-hidden="true"> </span>
+            Login
+        </a>
+
+        <a href="Registration.html">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+            Registration
+        </a>
+
+    </div>
+    <div class="main container body-content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 well">
+                    <div class="col-md-4">
+                        <div class="form-group has-feedback">
+                            <input placeholder="Search string" class="form-control">
+                        </div>
+                    </div>
+                    <button type="button" id="btn_search" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-search"></span>FIND</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="alerti" role="alert"></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Company name</th>
+                            <th scope="col">Date added</th>
+                            <th scope="col">Website</th>
+                            <th scope="col">Total Rating</th>
+                            <th scope="col">Reviews</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Name2</td>
+                            <td>18/11/2018 14:33</td>
+                            <td><a>http://website.com</a></td>
+                            <td>0</td>
+                            <td><a href="SelectedCompany.html"><i class="far fa-comments"></i></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Name3</td>
+                            <td>18/11/2018 14:33</td>
+                            <td><a>http://website.com</a></td>
+                            <td>0</td>
+                            <td><a href="SelectedCompany.html"><i class="far fa-comments"></i></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Name1</td>
+                            <td>18/11/2018 14:33</td>
+                            <td><a>http://website.com</a></td>
+                            <td>0</td>
+                            <td><a href="SelectedCompany.html"><i class="far fa-comments"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; CompanyRates</p>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
