@@ -14,13 +14,14 @@
     <script src="js/script.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-    <link rel="stylesheet" href="./css/Site.css">
-    <link rel="stylesheet" href="./css/Menu.css">
+    <!-- <link rel="stylesheet" href="./css/Site.css">
+    <link rel="stylesheet" href="./css/Menu.css"> -->
+
 </head>
 
 <body>
 
-    <!-- 
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -49,8 +50,8 @@
                 </ul>
             </div>
         </div>
-    </nav> -->
-    <div class="sidenav">
+    </nav>
+    <!-- <div class="sidenav">
         <center> <a href="">
                 LOGO</a> </center> <br />
 
@@ -83,51 +84,32 @@
         </a>
 
     </div>
-    <div class="main container body-content">
-        <div class="container">
-            <div class="row well">
-                <h2>Login</h2>
-            </div>
-            <div class="row main">
-
-                <div class="main-login main-center">
-                    <form class="form-horizontal" method="post" action="#">
-
+    <div class="main container body-content"> -->
+    <div class="container">
+        <div class="container login-container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 login-form-1">
+                    <h3>Login to your CompanyRates accounts</h3>
+                    <form>
                         <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">Email</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <input id="txt_email" type="text" class="form-control" name="username" placeholder="Enter email" />
-                                </div>
-                            </div>
+                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
                         </div>
-
                         <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Password</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input id="txt_password" type="password" class="form-control" name="password"
-                                        placeholder="Enter password" />
-                                </div>
-                            </div>
+                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
                         </div>
-
-                        <div class="form-group ">
-                            <button id="btn_potrdi" type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+                        <div class="form-group">
+                            <input type="submit" class="btnSubmit" value="Login" />
                         </div>
-                        <div class="login-register">
-                            <a href="Registration.html">Dont have account yet?</a>
-                        </div>
-                        <div class="row">
-                            <h4 id="wrongData"></h4>
+                        <div class="form-group">
+                            <a href="Registration.html" class="ForgetPwd">Not registrered yet?</a>
                         </div>
                     </form>
                 </div>
+                <div class="col-md-3"></div>
             </div>
         </div>
-
+        <!-- </div> -->
     </div>
 </body>
 

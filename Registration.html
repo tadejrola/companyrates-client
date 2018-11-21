@@ -15,14 +15,14 @@
     <script src="js/script.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-    <link rel="stylesheet" href="./css/Site.css">
-    <link rel="stylesheet" href="./css/Menu.css">
+    <!-- <link rel="stylesheet" href="./css/Site.css">
+    <link rel="stylesheet" href="./css/Menu.css"> -->
 </head>
 
 <body>
 
 
-    <!-- <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -52,8 +52,8 @@
                 </ul>
             </div>
         </div>
-    </nav> -->
-    <div class="sidenav">
+    </nav>
+    <!-- <div class="sidenav">
         <center> <a href="">
                 LOGO</a> </center> <br />
 
@@ -85,78 +85,38 @@
             Registration
         </a>
 
-    </div>
-    <div class="main container body-content">
-        <div class="container">
-
-            <div class="row well">
-                <h2>Registration</h2>
-            </div>
-
-            <div class="row main">
-
-                <div class="main-login main-center">
-                    <form class="form-horizontal" method="post" action="#">
-
+    </div> -->
+    <div class="container">
+        <div class="container login-container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 login-form-1">
+                    <h3>Register new account</h3>
+                    <form>
                         <div class="form-group">
-                            <label for="email" class="cols-sm-2 control-label">Email</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                    <input autocomplete="off" id="txt_email" type="text" class="form-control" name="email"
-                                        placeholder="Vnesite email naslov" />
-                                </div>
-                            </div>
+                            <input type="email" class="form-control" placeholder="Email *" value="" />
                         </div>
-
                         <div class="form-group">
-                            <label for="email" class="cols-sm-2 control-label">Email</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <input autocomplete="off" id="txt_email" type="text" class="form-control" name="email"
-                                        placeholder="Enter email" />
-                                </div>
-                            </div>
+                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
                         </div>
-
                         <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Password</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input autocomplete="off" id="txt_geslo" type="password" class="form-control" name="password"
-                                        placeholder="Enter password" />
-                                </div>
-                            </div>
+                            <input type="password" class="form-control" placeholder="Reenter your Password *" value="" />
                         </div>
-
                         <div class="form-group">
-                            <label for="confirm" class="cols-sm-2 control-label">Reenter password</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input autocomplete="off" id="txt_reenterPassword" type="password" class="form-control"
-                                        name="confirm" placeholder="Reenter password" />
-                                </div>
-                            </div>
+                            <input type="submit" class="btnSubmit" value="Register" />
                         </div>
-
-                        <div class="form-group ">
-                            <button type="button" class="btn btn-primary btn-lg btn-block login-button">Registration</button>
+                        <div class="form-group">
+                            <a href="Login.html" class="ForgetPwd">Already have an account?</a>
                         </div>
-                        <div class="login-register">
-                            <a href="Login.html">Login</a>
-                        </div>
-
-                        <div class="row">
-                            <h4 id="wrongData"></h4>
+                        <div class="form-group">
+                            <a href="RegistrationCompany.html" class="ForgetPwd">Register COMPANY account</a>
                         </div>
                     </form>
                 </div>
+                <div class="col-md-3"></div>
             </div>
         </div>
-
+        <!-- </div> -->
     </div>
 </body>
 

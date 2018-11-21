@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>O portalu - CompanyRates.si</title>
+    <title>Registration - CompanyRates</title>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -40,11 +41,12 @@
 
                         </ul>
                     </li>
-                    <li class="active"><a href="Portal.aspx">About</a></li>
+                    <li><a href="About.html">About</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Registration.html"><span class="glyphicon glyphicon-user"></span>Registration</a></li>
+                    <li class="active"><a href="Registration.html"><span class="glyphicon glyphicon-user"></span>
+                            Registration</a></li>
                     <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span>Log
                             in</a></li>
                 </ul>
@@ -84,18 +86,49 @@
         </a>
 
     </div> -->
-
     <div class="container">
-        <div class="row well">
-            <h2>About</h2>
-        </div>
-        <div class="row well">
-            <p>
-                Bla bla bla
-            </p>
+        <div class="container login-container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 login-form-1">
+                    <h3>Register new company account</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Reenter your Password *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Company name *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Company web site *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Company address *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btnSubmit" value="Register" />
+                        </div>
+                        <div class="form-group">
+                            <a href="Login.html" class="ForgetPwd">Already have an account?</a>
+                        </div>
+                        <div class="form-group">
+                            <a href="Registration.html" class="ForgetPwd">Register USER account</a>
+                        </div>
+                </div>
+
+                </form>
+            </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
-
+    <!-- </div> -->
+    </div>
 </body>
 
 </html>

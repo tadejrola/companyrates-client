@@ -17,13 +17,13 @@
     <script src="js/script.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-    <link rel="stylesheet" href="./css/Site.css">
-    <link rel="stylesheet" href="./css/Menu.css">
+    <!-- <link rel="stylesheet" href="./css/Site.css">
+    <link rel="stylesheet" href="./css/Menu.css"> -->
 </head>
 
 <body>
 
-    <!-- <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -52,9 +52,9 @@
                 </ul>
             </div>
         </div>
-    </nav> -->
+    </nav>
 
-    <div class="sidenav">
+    <!-- <div class="sidenav">
         <center> <a href="">
                 LOGO</a> </center> <br />
 
@@ -86,230 +86,230 @@
             Registration
         </a>
 
-    </div>
-    <div class="main container body-content">
-        <div class="container">
-            <input type="hidden" id="MyID">
-            <div id="myModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                            <h4 class="modal-title">Add review</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Enter review:</p>
-                            <div>
-                                <textarea id="txt_review" style="width: 100%;"></textarea>
-                                <div class="form-group">
-                                    <label for="example-url-input" class="col-2 col-form-label">Category</label>
-                                    <div class="col-10">
-                                        <select id="DDL_razlog" name="DDL_razlog">
-                                            <option value="Mobing">Mobing</option>
-                                            <option value="asd">Asd</option>
-                                            <option value="dsa">Dsa</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
+    </div> -->
+    <!-- <div class="main container body-content"> -->
+    <div class="container">
+        <input type="hidden" id="MyID">
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                        <h4 class="modal-title">Add review</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Enter review:</p>
+                        <div>
+                            <textarea id="txt_review" style="width: 100%;"></textarea>
+                            <div class="form-group">
+                                <label for="example-url-input" class="col-2 col-form-label">Category</label>
+                                <div class="col-10">
+                                    <select id="DDL_razlog" name="DDL_razlog">
+                                        <option value="Mobing">Mobing</option>
+                                        <option value="asd">Asd</option>
+                                        <option value="dsa">Dsa</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
-                                <label>
-                                    <input type="checkbox" id="CB_anonymous" name="checkbox" value="value">Add as an
-                                    anonymous</label><br />
-                                <button type="button" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD</button>
                             </div>
+                            <label>
+                                <input type="checkbox" id="CB_anonymous" name="checkbox" value="value">Add as an
+                                anonymous</label><br />
+                            <button type="button" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD</button>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-md-6 text-center well"><a href="Index.html" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>Back
-                            to Companies</a></div>
-                    <div class="col-md-6 text-center well">
-                        <button type="button" id="btn_dodajKomentar" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD
-                            REVIEW</button>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-6 well">
-                        COMPANY NAME:
-                        <label id="lbl_name">asdass</label>
-                        <br />
-                        COMPANY ADDRESS:
-                        <label id="lbl_address">adasdasd</label>
-                        <br />
-                        COMPANY SITE:
-                        <label id="lbl_site">adasdsad</label>
-                        <br />
-                        VERIFIED:
-                        <label id="lbl_verified">Yes</label><br>
-                        OTAL RATING:
-                        <label id="lbl_rating">4</label><br>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">
-                            <i class="far fa-thumbs-up"></i>
-
-                            <i class="far fa-thumbs-down"></i> <br>
-
-
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <h2>REVIEWS</h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 well">
-
-                        <div id="alerti" role="alert"></div>
-                        <table id="LV_reviews" class="table table-hover table-striped table-responsive">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>
-                                            Something strange happened
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Entered:
-                                            <br />
-                                            <strong>
-                                                Tadej Rola</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Category:<br />
-                                            <strong>
-                                                Mobing</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Date:<br />
-                                            <strong>
-                                                19/11/2018 14:35</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <i class="far fa-thumbs-up"></i>
-
-                                        <i class="far fa-thumbs-down"></i>
-
-                                    </td>
-                                    <td>
-
-                                        <h5>
-                                            <b>Total rating:</b>
-                                        </h5>
-                                        <p>
-                                            0
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>
-                                            Something strange happened
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Entered:
-                                            <br />
-                                            <strong>
-                                                Tadej Rola</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Category:<br />
-                                            <strong>
-                                                Mobing</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Date:<br />
-                                            <strong>
-                                                19/11/2018 14:35</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <i class="far fa-thumbs-up"></i>
-
-                                        <i class="far fa-thumbs-down"></i>
-
-                                    </td>
-                                    <td>
-
-                                        <h5>
-                                            <b>Total rating:</b>
-                                        </h5>
-                                        <p>
-                                            0
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>
-                                            Something strange happened
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Entered:
-                                            <br />
-                                            <strong>
-                                                Tadej Rola</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Category:<br />
-                                            <strong>
-                                                Mobing</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            Date:<br />
-                                            <strong>
-                                                19/11/2018 14:35</strong>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <i class="far fa-thumbs-up"></i>
-
-                                        <i class="far fa-thumbs-down"></i>
-
-                                    </td>
-                                    <td>
-
-                                        <h5>
-                                            <b>Total rating:</b>
-                                        </h5>
-                                        <p>
-                                            0
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6 text-center well"><a href="Index.html" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>Back
+                        to Companies</a></div>
+                <div class="col-md-6 text-center well">
+                    <button type="button" id="btn_dodajKomentar" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD
+                        REVIEW</button>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 well">
+                    COMPANY NAME:
+                    <label id="lbl_name">asdass</label>
+                    <br />
+                    COMPANY ADDRESS:
+                    <label id="lbl_address">adasdasd</label>
+                    <br />
+                    COMPANY SITE:
+                    <label id="lbl_site">adasdsad</label>
+                    <br />
+                    VERIFIED:
+                    <label id="lbl_verified">Yes</label><br>
+                    OTAL RATING:
+                    <label id="lbl_rating">4</label><br>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <i class="far fa-thumbs-up"></i>
+
+                        <i class="far fa-thumbs-down"></i> <br>
+
+
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <h2>REVIEWS</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 well">
+
+                    <div id="alerti" role="alert"></div>
+                    <table id="LV_reviews" class="table table-hover table-striped table-responsive">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Something strange happened
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Entered:
+                                        <br />
+                                        <strong>
+                                            Tadej Rola</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Category:<br />
+                                        <strong>
+                                            Mobing</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Date:<br />
+                                        <strong>
+                                            19/11/2018 14:35</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <i class="far fa-thumbs-up"></i>
+
+                                    <i class="far fa-thumbs-down"></i>
+
+                                </td>
+                                <td>
+
+                                    <h5>
+                                        <b>Total rating:</b>
+                                    </h5>
+                                    <p>
+                                        0
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Something strange happened
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Entered:
+                                        <br />
+                                        <strong>
+                                            Tadej Rola</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Category:<br />
+                                        <strong>
+                                            Mobing</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Date:<br />
+                                        <strong>
+                                            19/11/2018 14:35</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <i class="far fa-thumbs-up"></i>
+
+                                    <i class="far fa-thumbs-down"></i>
+
+                                </td>
+                                <td>
+
+                                    <h5>
+                                        <b>Total rating:</b>
+                                    </h5>
+                                    <p>
+                                        0
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Something strange happened
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Entered:
+                                        <br />
+                                        <strong>
+                                            Tadej Rola</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Category:<br />
+                                        <strong>
+                                            Mobing</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Date:<br />
+                                        <strong>
+                                            19/11/2018 14:35</strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <i class="far fa-thumbs-up"></i>
+
+                                    <i class="far fa-thumbs-down"></i>
+
+                                </td>
+                                <td>
+
+                                    <h5>
+                                        <b>Total rating:</b>
+                                    </h5>
+                                    <p>
+                                        0
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 
