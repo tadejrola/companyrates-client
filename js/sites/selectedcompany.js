@@ -14,9 +14,9 @@ $(document).ready(function () {
                 $('#lbl_site').text(data.Website);
                 $('#lbl_verified').text(data.Verified);
                 $('#lbl_rating').text(data.TotalRating);
+                $("#logo-img").attr("src", data.LogoUrl);
 
                 // TO-DO:
-                // - DISPLAY LOGO OF COMPANY
                 // - DISPLAY REVIEWS OF COMPANY
                 // - ADDING NEW REVIEWS
                 // - RATING REVIEWS

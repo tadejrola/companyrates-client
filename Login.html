@@ -14,6 +14,7 @@
     <script src="js/script.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <script src="./js/sites/login.js"></script>
 </head>
 
 <body>
@@ -56,13 +57,14 @@
                     <h3>Login to your CompanyRates accounts</h3>
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                            <input type="email" id="txt_email" class="form-control" placeholder="Your Email *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                            <input type="password" id="txt_pass" class="form-control" placeholder="Your Password *"
+                                value="" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
+                            <input type="submit" id="btn_login" class="btnSubmit" value="Login" />
                         </div>
                         <div class="form-group">
                             <a href="Registration.html" class="ForgetPwd">Not registrered yet?</a>
