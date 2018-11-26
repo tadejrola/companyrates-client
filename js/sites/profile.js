@@ -6,6 +6,9 @@ $(document).ready(function () {
     if (datetime < new Date() || key == undefined) {
         window.location = "Login.html";
     }
+    $('#ul_profile > li').hide();
+    var liRow = '<li><a href="Profile.html"><span class="glyphicon glyphicon-user"></span> Session key: ' + key + '</a></li>';
+    $('#ul_profile').append(liRow);
 
 
     $("#btn_logout").click(function () {

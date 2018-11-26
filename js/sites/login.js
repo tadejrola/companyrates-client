@@ -23,6 +23,7 @@ $(document).ready(function () {
                 window.location = "index.html";
                 sessionStorage.setItem("SessionKey", data.SessionKey);
                 sessionStorage.setItem("ValidTo", data.ValidTo);
+                sessionStorage.setItem("UserID", data.User_FK);
                 console.log(data);
 
             },
