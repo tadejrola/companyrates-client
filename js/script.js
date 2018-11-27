@@ -17,7 +17,7 @@
             $('.table tr').css('display', 'none').fadeIn('slow');
         }
     });
-    $("#btn_addReview").click(function () {
+    $("#btn_openModalAddReview").click(function () {
         var id = $('#MyID').val();
         if (id == "0") {
             window.location.replace("Login.html");

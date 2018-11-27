@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <label for="example-url-input" class="col-2 col-form-label">Category</label>
                                 <div class="col-10">
-                                    <select id="DDL_razlog" name="DDL_razlog">
+                                    <select id="DDL_category" name="DDL_category">
                                         <option value="Mobing">Mobing</option>
                                         <option value="asd">Asd</option>
                                         <option value="dsa">Dsa</option>
@@ -80,7 +80,7 @@
                             <label>
                                 <input type="checkbox" id="CB_anonymous" name="checkbox" value="value">Add as an
                                 anonymous</label><br />
-                            <button type="button" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD</button>
+                            <button type="button" id="btn_addReview" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="col-md-6 text-center well"><a href="index.html" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>Back
                         to Companies</a></div>
                 <div class="col-md-6 text-center well">
-                    <button type="button" id="btn_dodajKomentar" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD
+                    <button type="button" id="btn_openModalAddReview" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus"></span>ADD
                         REVIEW</button>
                 </div>
             </div>
@@ -116,9 +116,8 @@
                     <label id="lbl_rating"></label><br>
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
-                        <i class="far fa-thumbs-up"></i>
-
-                        <i class="far fa-thumbs-down"></i> <br>
+                        <button id="btn_thumbsup" class="btn"><i class="far fa-thumbs-up"></i></button>
+                        <button id="btn_thumbsdown" class="btn"><i class="far fa-thumbs-down"></i></button>
 
 
                     </div>
@@ -136,8 +135,9 @@
                 <div class="col-md-12 well">
 
                     <div id="alerti" role="alert"></div>
-                    <table id="LV_reviews" class="table table-hover table-striped table-responsive">
+                    <table id="table_reviews" class="table table-hover table-striped table-responsive">
                         <tbody>
+
                             <tr>
                                 <td>
                                     <p>
@@ -167,101 +167,12 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <i class="far fa-thumbs-up"></i>
+                                    <button name="btn_thumbsup" id="" class="btn"><i class="far fa-thumbs-up"></i></button>
 
-                                    <i class="far fa-thumbs-down"></i>
-
-                                </td>
-                                <td>
-
-                                    <h5>
-                                        <b>Total rating:</b>
-                                    </h5>
-                                    <p>
-                                        0
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>
-                                        Something strange happened
-                                    </p>
-                                </td>
-                                <td>
-                                    <p>
-                                        Entered:
-                                        <br />
-                                        <strong>
-                                            Tadej Rola</strong>
-                                    </p>
-                                </td>
-                                <td>
-                                    <p>
-                                        Category:<br />
-                                        <strong>
-                                            Mobing</strong>
-                                    </p>
-                                </td>
-                                <td>
-                                    <p>
-                                        Date:<br />
-                                        <strong>
-                                            19/11/2018 14:35</strong>
-                                    </p>
-                                </td>
-                                <td>
-                                    <i class="far fa-thumbs-up"></i>
-
-                                    <i class="far fa-thumbs-down"></i>
+                                    <button name="btn_thumbsdown" id="" class="btn"><i class="far fa-thumbs-down"></i></button>
 
                                 </td>
                                 <td>
-
-                                    <h5>
-                                        <b>Total rating:</b>
-                                    </h5>
-                                    <p>
-                                        0
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>
-                                        Something strange happened
-                                    </p>
-                                </td>
-                                <td>
-                                    <p>
-                                        Entered:
-                                        <br />
-                                        <strong>
-                                            Tadej Rola</strong>
-                                    </p>
-                                </td>
-                                <td>
-                                    <p>
-                                        Category:<br />
-                                        <strong>
-                                            Mobing</strong>
-                                    </p>
-                                </td>
-                                <td>
-                                    <p>
-                                        Date:<br />
-                                        <strong>
-                                            19/11/2018 14:35</strong>
-                                    </p>
-                                </td>
-                                <td>
-                                    <i class="far fa-thumbs-up"></i>
-
-                                    <i class="far fa-thumbs-down"></i>
-
-                                </td>
-                                <td>
-
                                     <h5>
                                         <b>Total rating:</b>
                                     </h5>
