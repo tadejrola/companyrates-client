@@ -1,12 +1,6 @@
 $(document).ready(function () {
 
-    let key = sessionStorage.getItem("SessionKey");
-    let validTo = sessionStorage.getItem("ValidTo");
-    let datetime = new Date(validTo);
-    console.log(datetime);
-    if (datetime > new Date()) {
-        window.location = "Profile.html";
-    }
+    changeLocationIfLoggedIn();
 
     $("#btn_login").click(function () {
         let user = {};
