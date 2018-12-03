@@ -56,13 +56,17 @@ $(document).ready(function () {
                 dataType: 'json',
                 data: companyThumbDownData,
                 success: function (data) {
+                    if (data == false) {
+                        alert("You have voted already!");
+                    }
+                    else {
+                        window.location.reload(true);
+                    }
 
-
-                    window.location.reload(true);
                 },
                 error: function (err) {
                     console.log(err);
-                    window.location.reload(true);
+                    alert(err);
                 }
             });
 
@@ -83,12 +87,17 @@ $(document).ready(function () {
                 data: companyThumbUpData,
                 success: function (data) {
 
+                    if (data == false) {
+                        alert("You have voted already!");
+                    }
+                    else {
+                        window.location.reload(true);
+                    }
 
-                    window.location.reload(true);
                 },
-                error: function () {
+                error: function (err) {
                     console.log('error');
-                    window.location.reload(true);
+                    alert(err);
                 }
             });
 
@@ -123,9 +132,11 @@ $(document).ready(function () {
                     $("#myModal").modal('hide');
 
                     location.reload();
+
                 },
-                error: function () {
+                error: function (err) {
                     console.log('error');
+                    alert(err);
                 }
             });
         });
@@ -162,13 +173,16 @@ function ThumbsDownReview(el) {
         dataType: 'json',
         data: ReviewThumbDownData,
         success: function (data) {
-
-
-            window.location.reload(true);
+            if (data == false) {
+                alert("You have voted already!");
+            }
+            else {
+                window.location.reload(true);
+            }
         },
         error: function (err) {
 
-            window.location.reload(true);
+            alert(err);
         }
     });
 
@@ -192,13 +206,16 @@ function ThumbsUpReview(el) {
         dataType: 'json',
         data: ReviewThumbDownData,
         success: function (data) {
-
-
-            window.location.reload(true);
+            if (data == false) {
+                alert("You have voted already!");
+            }
+            else {
+                window.location.reload(true);
+            }
         },
         error: function (err) {
 
-            window.location.reload(true);
+            alert(err);
         }
     });
 

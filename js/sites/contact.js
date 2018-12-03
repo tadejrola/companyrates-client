@@ -19,6 +19,8 @@ $(document).ready(function () {
                 console.log('error');
             }
         });
+        alert("Messege has been sent. We will reach back to you soon!");
+
     });
 
 
