@@ -29,9 +29,41 @@ function changeLocationIfNotLoggedIn() {
 function showLoggedInUser() {
     let items = getStorageItems();
     if (items.ValidTo > new Date()) {
-        $('#ul_profile > li').hide();
-        var liRow = '<li><a href="Profile.html"><span class="glyphicon glyphicon-user"></span> Session key: ' + items.SessionKey + '</a></li>';
-        $('#ul_profile').append(liRow);
-    }
+        $.ajax({
+            url: "https://companyratesapi.azurewebsites.net/api/users/" + items.UserID + "?sessionkey=" + items.SessionKey,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#ul_profile > li').hide();
+                var liRow = '<li><a href="Profile.html"><span class="glyphicon glyphicon-user"></span> Hey, ' + data.Email + '</a></li>';
+                $('#ul_profile').append(liRow);
+            },
+            error: function () {
+                console.log('error');
+            }
+        });
 
+    }
+    else {
+        $('#ul_profile > li').hide();
+        var liRow1 = '<li><a href="Registration.html"><span class="glyphicon glyphicon-user"></span>Registration</a></li>';
+        var liRow2 = '<li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>';
+        $('#ul_profile').append(liRow1);
+        $('#ul_profile').append(liRow2);
+    }
+}
+
+async function sha256(message) {
+    // encode as UTF-8
+    const msgBuffer = new TextEncoder('utf-8').encode(message);
+
+    // hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+    // convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    // convert bytes to hex string                  
+    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+    return hashHex;
 }

@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
     changeLocationIfLoggedIn();
+    showLoggedInUser();
 
-    $("#btn_register").click(function () {
+    $("#btn_register").click(async function () {
         let email = $("#txt_email").val();
         let pass = $("#txt_pass").val();
         let passre = $("#txt_passre").val();
@@ -14,10 +15,10 @@ $(document).ready(function () {
         let city = $("#txt_city").val();
 
         if (pass === passre) {
-
+            let passHash = await sha256(pass);
             let data = {
                 Email: email,
-                PasswordHash: pass,
+                PasswordHash: passHash,
                 isCompany: true
             }
             $.ajax({
@@ -27,7 +28,6 @@ $(document).ready(function () {
                 data: data,
                 success: function (responseUser) {
 
-                    console.log(responseUser);
                     $.ajax({
                         url: "https://companyratesapi.azurewebsites.net/api/accounts/login",
                         type: 'POST',
@@ -37,7 +37,8 @@ $(document).ready(function () {
 
                             sessionStorage.setItem("SessionKey", responseLogin.SessionKey);
                             sessionStorage.setItem("ValidTo", responseLogin.ValidTo);
-                            console.log(responseLogin);
+                            sessionStorage.setItem("UserID", responseLogin.User_FK);
+
 
                             let companyData = {
 
