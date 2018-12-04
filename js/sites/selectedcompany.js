@@ -66,7 +66,7 @@ $(document).ready(function () {
                 },
                 error: function (err) {
                     console.log(err);
-                    alert(err);
+
                 }
             });
 
@@ -97,7 +97,7 @@ $(document).ready(function () {
                 },
                 error: function (err) {
                     console.log('error');
-                    alert(err);
+
                 }
             });
 
@@ -136,7 +136,7 @@ $(document).ready(function () {
                 },
                 error: function (err) {
                     console.log('error');
-                    alert(err);
+
                 }
             });
         });
@@ -182,7 +182,7 @@ function ThumbsDownReview(el) {
         },
         error: function (err) {
 
-            alert(err);
+
         }
     });
 
@@ -215,7 +215,6 @@ function ThumbsUpReview(el) {
         },
         error: function (err) {
 
-            alert(err);
         }
     });
 
