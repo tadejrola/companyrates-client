@@ -51,22 +51,79 @@
     <div class="container">
         <div class="row well">
             <button type="button" id="btn_logout" class="btn btn-danger btn-lg">Logout</button>
-        </div>
-        <div class="row">
-            <h2>MY REVIEWS</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-12 well">
-                <div id="alerts" role="alert"></div>
-                <table id="LV_reviews" class="table table-hover table-striped table-responsive">
-                    <tbody>
 
-                    </tbody>
-                </table>
+            <button type="button" id="btn_setAsAdmin" class="btn btn-success btn-lg">Set as admin</button>
+        </div>
+        <div id="div_details" class="row well">
+            <div id="div_name" class="form-group row">
+                <label class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" id="txt_name">
+                </div>
+            </div>
+            <div id="div_website" class="form-group row">
+                <label class="col-2 col-form-label">Website</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" id="txt_website">
+                </div>
+            </div>
+            <div id="div_address" class="form-group row">
+                <label class="col-2 col-form-label">Address</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" id="txt_address">
+                </div>
+            </div>
+            <div id="div_city" class="form-group row">
+                <label class="col-2 col-form-label">City</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" id="txt_city">
+                </div>
+            </div>
+            <div id="div_country" class="form-group row">
+                <label class="col-2 col-form-label">Country</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" id="txt_country">
+                </div>
+            </div>
+            <div id="div_logoUrl" class="form-group row">
+                <label class="col-2 col-form-label">Logo url</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" id="txt_logoUrl">
+                </div>
+            </div>
+            <div id="div_pass" class="form-group row">
+                <label class="col-2 col-form-label">Password change</label>
+                <div class="col-10">
+                    <input class="form-control" type="password" id="txt_pass">
+                </div>
+            </div>
+            <div id="div_passRe" class="form-group row">
+                <label class="col-2 col-form-label">Password change reenter</label>
+                <div class="col-10">
+                    <input class="form-control" type="password" id="txt_passRe">
+                </div>
             </div>
 
-
+            <button type="button" id="btn_update" class="btn btn-success btn-lg">Update</button>
         </div>
+        <div id="my_reviews">
+            <div class="row">
+                <h2 id="whose_reviews">MY REVIEWS</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12 well">
+                    <div id="alerts" role="alert"></div>
+                    <table id="LV_reviews" class="table table-hover table-striped table-responsive">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
 </body>
 
 </html>

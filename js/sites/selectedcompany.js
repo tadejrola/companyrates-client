@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
     showLoggedInUser();
-
+    $('#btn_approve').hide();
+    let items = getStorageItems();
+    if (items.isCompany == true) {
+        $('#div_addReview').hide();
+    }
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('companyid')) {
         let param = searchParams.get('companyid')
@@ -10,12 +14,19 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (data) {
-                $('#lbl_name').text(data.Name);
+                $('#lbl_name').html(`<a href="Profile.html?userid=${data.User_FK}">${data.Name}</a>`);
                 $('#lbl_address').text(data.Address + " " + data.City + " " + data.Country);
                 $('#lbl_site').text(data.Website);
                 $('#lbl_verified').text(data.Verified);
                 $('#lbl_rating').text(data.TotalRating);
                 $("#logo-img").attr("src", data.LogoUrl);
+                if (data.Verified == false) {
+                    if (items.isAdmin == true) {
+                        $('#btn_approve').show();
+
+                    }
+                }
+
 
                 $.ajax({
                     url: "https://companyratesapi.azurewebsites.net/api/reviews/" + param,
@@ -24,8 +35,14 @@ $(document).ready(function () {
                     success: function (data) {
 
                         for (let i in data) {
+                            if (items.isAdmin == true) {
+                                var tablerow = `<tr><td><p>${data[i].Text}</p></td><td><p>Entered:<br/><strong><a href="Profile.html?userid=${data[i].User_FK}">${data[i].UserFK.Email}</a></strong></p></td><td><p>Category:<br /><strong>${data[i].Category}</strong></p></td><td><p>Date:<br /> <strong>${data[i].DateTimeAdded}</strong> </p> </td> <td> <button OnClick="ThumbsUpReview(this);" value="${data[i].ReviewID}" class="btn btn_thumbsup"><i class="far fa-thumbs-up"></i></button> <button OnClick="ThumbsDownReview(this);" value="${data[i].ReviewID}"class="btn btn_thumbsdown"><i class="far fa-thumbs-down"></i></button> </td> <td> <h5> <b>Total rating:</b> </h5> <p>${data[i].TotalRating}</p> </td> <td class="removeReview"> <button OnClick="RemoveReview(this);" value="${data[i].ReviewID}" class="btn"><i class="far fa-trash-alt"></i></button></td> </tr>`;
 
-                            var tablerow = `<tr><td><p>${data[i].Text}</p></td><td><p>Entered:<br/><strong>${data[i].UserFK.Email}</strong></p></td><td><p>Category:<br /><strong>${data[i].Category}</strong></p></td><td><p>Date:<br /> <strong>${data[i].DateTimeAdded}</strong> </p> </td> <td> <button OnClick="ThumbsUpReview(this);" value="${data[i].ReviewID}" class="btn btn_thumbsup"><i class="far fa-thumbs-up"></i></button> <button OnClick="ThumbsDownReview(this);" value="${data[i].ReviewID}"class="btn btn_thumbsdown"><i class="far fa-thumbs-down"></i></button> </td> <td> <h5> <b>Total rating:</b> </h5> <p>${data[i].TotalRating}</p> </td> </tr>`;
+                            }
+                            else {
+                                var tablerow = `<tr><td><p>${data[i].Text}</p></td><td><p>Entered:<br/><strong><a href="Profile.html?userid=${data[i].User_FK}">${data[i].UserFK.Email}</a></strong></p></td><td><p>Category:<br /><strong>${data[i].Category}</strong></p></td><td><p>Date:<br /> <strong>${data[i].DateTimeAdded}</strong> </p> </td> <td> <button OnClick="ThumbsUpReview(this);" value="${data[i].ReviewID}" class="btn btn_thumbsup"><i class="far fa-thumbs-up"></i></button> <button OnClick="ThumbsDownReview(this);" value="${data[i].ReviewID}"class="btn btn_thumbsdown"><i class="far fa-thumbs-down"></i></button> </td> <td> <h5> <b>Total rating:</b> </h5> <p>${data[i].TotalRating}</p> </td></tr>`;
+
+                            }
 
                             $('#table_reviews tbody').append(tablerow);
                         }
@@ -43,15 +60,15 @@ $(document).ready(function () {
 
         $("#btn_compnay_thumbsup").click(function () {
             changeLocationIfNotLoggedIn();
-            let userData = getStorageItems();
+
             let companyThumbDownData = {
-                User_FK: userData.UserID,
+                User_FK: items.UserID,
                 Company_FK: param,
                 Value: 1
             };
 
             $.ajax({
-                url: "https://companyratesapi.azurewebsites.net/api/votecompanies?sessionkey=" + userData.SessionKey,
+                url: "https://companyratesapi.azurewebsites.net/api/votecompanies?sessionkey=" + items.SessionKey,
                 type: 'POST',
                 dataType: 'json',
                 data: companyThumbDownData,
@@ -65,6 +82,9 @@ $(document).ready(function () {
 
                 },
                 error: function (err) {
+                    if (err.status == 401) {
+                        alert("You are not allowed to vote!");
+                    }
                     console.log(err);
 
                 }
@@ -74,14 +94,14 @@ $(document).ready(function () {
 
         $("#btn_company_thumbsdown").click(function () {
             changeLocationIfNotLoggedIn();
-            let userData = getStorageItems();
+
             let companyThumbUpData = {
-                User_FK: userData.UserID,
+                User_FK: items.UserID,
                 Company_FK: param,
                 Value: -1
             };
             $.ajax({
-                url: "https://companyratesapi.azurewebsites.net/api/votecompanies?sessionkey=" + userData.SessionKey,
+                url: "https://companyratesapi.azurewebsites.net/api/votecompanies?sessionkey=" + items.SessionKey,
                 type: 'POST',
                 dataType: 'json',
                 data: companyThumbUpData,
@@ -96,6 +116,9 @@ $(document).ready(function () {
 
                 },
                 error: function (err) {
+                    if (err.status == 401) {
+                        alert("You are not allowed to vote!");
+                    }
                     console.log('error');
 
                 }
@@ -105,11 +128,11 @@ $(document).ready(function () {
 
         $("#btn_addReview").click(function () {
 
-            let userData = getStorageItems();
+
 
             let category = $('#DDL_category').val();
             let text = $("#txt_review").val();
-            let user_fk = userData.UserID;
+            let user_fk = items.UserID;
             let company_fk = param;
             let date = new Date();
             let month = parseInt(date.getMonth()) + 1;
@@ -124,7 +147,7 @@ $(document).ready(function () {
             }
 
             $.ajax({
-                url: "https://companyratesapi.azurewebsites.net/api/reviews?sessionkey=" + userData.SessionKey,
+                url: "https://companyratesapi.azurewebsites.net/api/reviews?sessionkey=" + items.SessionKey,
                 type: 'POST',
                 dataType: 'json',
                 data: reviewData,
@@ -160,15 +183,15 @@ function ThumbsDownReview(el) {
 
     var id = $(el).attr('value');
     changeLocationIfNotLoggedIn();
-    let userData = getStorageItems();
+    let items = getStorageItems();
     let ReviewThumbDownData = {
-        User_FK: userData.UserID,
+        User_FK: items.UserID,
         Review_FK: id,
         Value: -1
     };
 
     $.ajax({
-        url: "https://companyratesapi.azurewebsites.net/api/votereviews?sessionkey=" + userData.SessionKey,
+        url: "https://companyratesapi.azurewebsites.net/api/votereviews?sessionkey=" + items.SessionKey,
         type: 'POST',
         dataType: 'json',
         data: ReviewThumbDownData,
@@ -182,7 +205,9 @@ function ThumbsDownReview(el) {
         },
         error: function (err) {
 
-
+            if (err.status == 401) {
+                alert("You are not allowed to vote!");
+            }
         }
     });
 
@@ -193,15 +218,15 @@ function ThumbsUpReview(el) {
 
     var id = $(el).attr('value');
     changeLocationIfNotLoggedIn();
-    let userData = getStorageItems();
+    let items = getStorageItems();
     let ReviewThumbDownData = {
-        User_FK: userData.UserID,
+        User_FK: items.UserID,
         Review_FK: id,
         Value: 1
     };
 
     $.ajax({
-        url: "https://companyratesapi.azurewebsites.net/api/votereviews?sessionkey=" + userData.SessionKey,
+        url: "https://companyratesapi.azurewebsites.net/api/votereviews?sessionkey=" + items.SessionKey,
         type: 'POST',
         dataType: 'json',
         data: ReviewThumbDownData,
@@ -214,7 +239,9 @@ function ThumbsUpReview(el) {
             }
         },
         error: function (err) {
-
+            if (err.status == 401) {
+                alert("You are not allowed to vote!");
+            }
         }
     });
 

@@ -2,11 +2,19 @@ function getStorageItems() {
     let key = sessionStorage.getItem("SessionKey");
     let validTo = sessionStorage.getItem("ValidTo");
     let userId = sessionStorage.getItem("UserID");
+    let email = sessionStorage.getItem("Email");
+
+
+    let isAdmin = tytPreGetBool("isAdmin");
+    let isCompany = tytPreGetBool("isCompany");
     let datetime = new Date(validTo);
     let obj = {
         SessionKey: key,
         ValidTo: datetime,
-        UserID: userId
+        UserID: userId,
+        isCompany: isCompany,
+        isAdmin: isAdmin,
+        Email: email
     }
     return obj;
 }
@@ -35,7 +43,7 @@ function showLoggedInUser() {
             dataType: 'json',
             success: function (data) {
                 $('#ul_profile > li').hide();
-                var liRow = '<li><a href="Profile.html"><span class="glyphicon glyphicon-user"></span> Hey, ' + data.Email + '</a></li>';
+                var liRow = `<li><a href="Profile.html?userid=${items.UserID}"><span class="glyphicon glyphicon-user"></span> Hey, ${data.Email}</a></li>`;
                 $('#ul_profile').append(liRow);
             },
             error: function () {
@@ -66,4 +74,8 @@ async function sha256(message) {
     // convert bytes to hex string                  
     const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
     return hashHex;
+}
+
+function tytPreGetBool(pre) {
+    return sessionStorage.getItem(pre) === 'true'
 }
