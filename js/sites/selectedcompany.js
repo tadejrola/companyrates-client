@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    let company = {};
     showLoggedInUser();
     $('#btn_approve').hide();
     let items = getStorageItems();
@@ -14,10 +14,18 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (data) {
+                company = data;
                 $('#lbl_name').html(`<a href="Profile.html?userid=${data.User_FK}">${data.Name}</a>`);
                 $('#lbl_address').text(data.Address + " " + data.City + " " + data.Country);
                 $('#lbl_site').text(data.Website);
-                $('#lbl_verified').text(data.Verified);
+                let verified;
+                if (data.Verified === true) {
+                    verified = '<span class="glyphicon glyphicon-ok"></span>';
+                }
+                else {
+                    verified = '<span class="glyphicon glyphicon-remove"></span>';
+                }
+                $('#lbl_verified').html(verified);
                 $('#lbl_rating').text(data.TotalRating);
                 $("#logo-img").attr("src", data.LogoUrl);
                 if (data.Verified == false) {
@@ -164,6 +172,39 @@ $(document).ready(function () {
             });
         });
 
+        $("#btn_approve").click(function () {
+            if (items.isAdmin == true) {
+                let object = {
+                    CompanyID: company.CompanyID,
+                    Name: company.Name,
+                    Website: company.Website,
+                    LogoUrl: company.LogoUrl,
+                    Country: company.Country,
+                    Address: company.Address,
+                    City: company.City,
+                    Verified: true,
+                    TotalRating: company.TotalRating
+                };
+                $.ajax({
+                    url: `https://companyratesapi.azurewebsites.net/api/Companies/${company.CompanyID}?sessionkey=${items.SessionKey}`,
+                    type: 'PUT',
+                    dataType: 'json',
+                    data: object,
+                    success: function (data) {
+                        alert("Company approved!");
+                        location.reload();
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+
+                })
+            }
+
+
+
+        });
+
         $("#btn_openModalAddReview").click(function () {
             changeLocationIfNotLoggedIn();
 
@@ -244,5 +285,28 @@ function ThumbsUpReview(el) {
             }
         }
     });
+}
+
+function RemoveReview(el) {
+
+
+    var id = $(el).attr('value');
+    changeLocationIfNotLoggedIn();
+    let items = getStorageItems();
+    if (items.isAdmin == true) {
+        $.ajax({
+            url: "https://companyratesapi.azurewebsites.net/api/reviews/" + id + "?sessionkey=" + items.SessionKey,
+            type: 'DELETE',
+            dataType: 'json',
+
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
 
 }

@@ -25,9 +25,13 @@ $(document).ready(function () {
                 },
                 error: function () {
                     console.log('error');
+                    alert("error!");
                 }
 
             })
+        }
+        else {
+            alert("Password does not match!");
         }
     });
 });

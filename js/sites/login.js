@@ -27,6 +27,7 @@ $(document).ready(function () {
             },
             error: function () {
                 console.log('error');
+                alert("User does not exists!");
             }
         });
     });

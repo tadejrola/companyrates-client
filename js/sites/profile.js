@@ -10,8 +10,8 @@ $(document).ready(function () {
     if (searchParams.has('userid')) {
         let param = searchParams.get('userid')
         if (param == items.UserID) {
+            $("#lbl_user").text(items.Email);
             $('#btn_approve').hide();
-            $('#btn_setAsAdmin').hide();
             if (items.isCompany == true) {
                 $('#my_reviews').hide();
                 $("#div_pass").hide();
@@ -72,7 +72,6 @@ $(document).ready(function () {
         }
         else {
             $('#btn_logout').hide();
-            $('#btn_setAsAdmin').hide();
             $('#whose_reviews').text("Reviews");
             $('#div_details').hide();
             $.ajax({
@@ -80,11 +79,13 @@ $(document).ready(function () {
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
+                    $("#lbl_user").text(data.Email);
                     if (data.isCompany == true) {
                         window.location = "index.html";
                     }
                     if (!data.isCompany && !data.isAdmin && items.isAdmin) {
-                        $('#btn_setAsAdmin').show();
+
+                        user = data;
                     }
 
                 },
@@ -113,10 +114,6 @@ $(document).ready(function () {
                     console.log('error');
                 }
             });
-
-
-
-
         }
     }
     else {
@@ -128,26 +125,6 @@ $(document).ready(function () {
         let key = {};
         key.SessionKey = items.SessionKey;
 
-        $.ajax({
-            url: "https://companyratesapi.azurewebsites.net/api/accounts/logout",
-            type: 'POST',
-            dataType: 'json',
-            data: key,
-            success: function (data) {
-                sessionStorage.clear();
-                window.location = "Login.html";
-
-
-            },
-            error: function (err) {
-                console.log(err);
-            }
-
-        })
-    })
-
-    $("#btn_setAsAdmin").click(function () {
-        key.SessionKey = items.SessionKey;
         $.ajax({
             url: "https://companyratesapi.azurewebsites.net/api/accounts/logout",
             type: 'POST',
@@ -182,7 +159,9 @@ $(document).ready(function () {
                 LogoUrl: logourl,
                 Country: country,
                 Address: address,
-                City: city
+                City: city,
+                Verified: company.Verified,
+                TotalRating: company.TotalRating
             };
             $.ajax({
                 url: `https://companyratesapi.azurewebsites.net/api/Companies/${company.CompanyID}?sessionkey=${items.SessionKey}`,
@@ -190,6 +169,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 data: object,
                 success: function (data) {
+                    alert("Data changed!");
 
                 },
                 error: function (err) {
@@ -216,7 +196,9 @@ $(document).ready(function () {
                     dataType: 'json',
                     data: object,
                     success: function (data) {
-
+                        alert("Data changed!");
+                        $("#txt_pass").val("");
+                        $("#txt_passRe").val("");
 
                     },
                     error: function (err) {
@@ -224,6 +206,9 @@ $(document).ready(function () {
                     }
 
                 })
+            }
+            else {
+                alert("Password is not the same!");
             }
 
         }
