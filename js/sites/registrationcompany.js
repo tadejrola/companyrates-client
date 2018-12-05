@@ -38,9 +38,9 @@ $(document).ready(function () {
                             sessionStorage.setItem("SessionKey", responseLogin.SessionKey);
                             sessionStorage.setItem("ValidTo", responseLogin.ValidTo);
                             sessionStorage.setItem("UserID", responseLogin.User_FK);
-                            sessionStorage.setItem("isAdmin", data.UserFK.isAdmin);
-                            sessionStorage.setItem("isCompany", data.UserFK.isCompany);
-                            sessionStorage.setItem("Email", data.UserFK.Email);
+                            sessionStorage.setItem("isAdmin", "false");
+                            sessionStorage.setItem("isCompany", "true");
+                            sessionStorage.setItem("Email", email.toLowerCase());
 
 
                             let companyData = {
