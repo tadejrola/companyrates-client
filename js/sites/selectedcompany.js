@@ -194,7 +194,6 @@ $(document).ready(function () {
                     dataType: 'json',
                     data: object,
                     success: function (data) {
-                        alert("Company approved!");
                         location.reload();
                     },
                     error: function (err) {
