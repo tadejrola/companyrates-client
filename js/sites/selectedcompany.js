@@ -301,6 +301,10 @@ function RemoveReview(el) {
 
             success: function (data) {
                 console.log(data);
+                if (data) {
+                    alert("Successfuly deleted!")
+                    location.reload();
+                }
             },
             error: function (err) {
                 console.log(err);
