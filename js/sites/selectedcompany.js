@@ -1,7 +1,6 @@
 $(document).ready(function () {
     let company = {};
     showLoggedInUser();
-    $('#btn_approve').hide();
     let items = getStorageItems();
     if (items.isCompany == true) {
         $('#div_addReview').hide();
