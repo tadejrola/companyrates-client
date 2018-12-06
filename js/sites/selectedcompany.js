@@ -5,6 +5,8 @@ $(document).ready(function () {
     let items = getStorageItems();
     if (items.isCompany == true) {
         $('#div_addReview').hide();
+    } else if (items.isAdmin == true) {
+        $("#btn_removeCompany").show();
     }
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('companyid')) {
@@ -200,9 +202,27 @@ $(document).ready(function () {
 
                 })
             }
+        });
 
+        $("#btn_removeCompany").click(function () {
+            if (items.isAdmin == true) {
+                $.ajax({
+                    url: "https://companyratesapi.azurewebsites.net/api/companies/" + param + "?sessionkey=" + items.SessionKey,
+                    type: 'DELETE',
+                    dataType: 'json',
 
-
+                    success: function (data) {
+                        console.log(data);
+                        if (data) {
+                            alert("Successfuly deleted!")
+                            window.location = "index.html";
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
         });
 
         $("#btn_openModalAddReview").click(function () {
