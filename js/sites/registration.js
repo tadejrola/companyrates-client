@@ -15,7 +15,7 @@ $(document).ready(function () {
                 isCompany: false
             }
             $.ajax({
-                url: "https://companyratesapi.azurewebsites.net/api/users/",
+                url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/users/",
                 type: 'POST',
                 dataType: 'json',
                 data: data,

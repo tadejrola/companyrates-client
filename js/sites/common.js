@@ -38,7 +38,7 @@ function showLoggedInUser() {
     let items = getStorageItems();
     if (items.ValidTo > new Date()) {
         $.ajax({
-            url: "https://companyratesapi.azurewebsites.net/api/users/" + items.UserID + "?sessionkey=" + items.SessionKey,
+            url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/users/" + items.UserID + "?sessionkey=" + items.SessionKey,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
