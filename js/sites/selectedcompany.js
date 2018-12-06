@@ -5,7 +5,7 @@ $(document).ready(function () {
     if (items.isCompany == true) {
         $('#div_addReview').hide();
     } else if (items.isAdmin == true) {
-        $("#btn_removeCompany").show();
+        $('#btn_removeCompany').removeClass('hidden');
     }
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('companyid')) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 $("#logo-img").attr("src", data.LogoUrl);
                 if (data.Verified == false) {
                     if (items.isAdmin == true) {
-                        $('#btn_approve').show();
+                        $('#btn_approve').removeClass("hidden");
 
                     }
                 }
