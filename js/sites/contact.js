@@ -7,7 +7,7 @@ $(document).ready(function () {
         email.Text = $("#txt_text").val();
 
         $.ajax({
-            url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/emails",
+            url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/emails",
             type: 'POST',
             data: email,
             dataType: 'json',

@@ -18,7 +18,7 @@ $(document).ready(function () {
                 $("#div_passRe").hide();
 
                 $.ajax({
-                    url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/companies",
+                    url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/companies",
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews/",
+                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews/",
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -75,7 +75,7 @@ $(document).ready(function () {
             $('#whose_reviews').text("Reviews");
             $('#div_details').hide();
             $.ajax({
-                url: `http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Users/${param}?sessionkey=${items.SessionKey}`,
+                url: `https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Users/${param}?sessionkey=${items.SessionKey}`,
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -95,7 +95,7 @@ $(document).ready(function () {
             });
 
             $.ajax({
-                url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews/",
+                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews/",
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -126,7 +126,7 @@ $(document).ready(function () {
         key.SessionKey = items.SessionKey;
 
         $.ajax({
-            url: "http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/accounts/logout",
+            url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/accounts/logout",
             type: 'POST',
             dataType: 'json',
             data: key,
@@ -164,7 +164,7 @@ $(document).ready(function () {
                 TotalRating: company.TotalRating
             };
             $.ajax({
-                url: `http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Companies/${company.CompanyID}?sessionkey=${items.SessionKey}`,
+                url: `https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Companies/${company.CompanyID}?sessionkey=${items.SessionKey}`,
                 type: 'PUT',
                 dataType: 'json',
                 data: object,
@@ -191,7 +191,7 @@ $(document).ready(function () {
                 };
                 $.ajax({
 
-                    url: `http://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Users/${items.UserID}?sessionkey=${items.SessionKey}`,
+                    url: `https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Users/${items.UserID}?sessionkey=${items.SessionKey}`,
                     type: 'PUT',
                     dataType: 'json',
                     data: object,
