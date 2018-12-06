@@ -43,7 +43,7 @@ function showLoggedInUser() {
             dataType: 'json',
             success: function (data) {
                 $('#ul_profile > li').hide();
-                var liRow = `<li id="link_profile"><a href="Profile.html?userid=${items.UserID}"><span class="glyphicon glyphicon-user"></span> Hey, ${data.Email}</a></li>`;
+                var liRow = `<li><a id="link_profile" href="Profile.html?userid=${items.UserID}"><span class="glyphicon glyphicon-user"></span> Hey, ${data.Email}</a></li>`;
                 $('#ul_profile').append(liRow);
             },
             error: function () {
