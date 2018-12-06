@@ -2,14 +2,16 @@ $(document).ready(function () {
     let company = {};
     showLoggedInUser();
     let items = getStorageItems();
-    if (items.isCompany == true) {
-        $('#div_addReview').hide();
-    } else if (items.isAdmin == true) {
-        $('#btn_removeCompany').removeClass('hidden');
-    }
+
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('companyid')) {
-        let param = searchParams.get('companyid')
+        let param = searchParams.get('companyid');
+        if (items.isCompany == true) {
+            $('#div_addReview').hide();
+        } else if (items.isAdmin == true) {
+            $('#btn_removeCompany').removeClass('hidden');
+        }
+
         $.ajax({
             url: "https://companyratesapi.azurewebsites.net/api/companies/" + param,
             type: 'GET',
