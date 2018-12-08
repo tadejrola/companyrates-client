@@ -37,19 +37,10 @@ function changeLocationIfNotLoggedIn() {
 function showLoggedInUser() {
     let items = getStorageItems();
     if (items.ValidTo > new Date()) {
-        $.ajax({
-            url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/users/" + items.UserID + "?sessionkey=" + items.SessionKey,
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                $('#ul_profile > li').hide();
-                var liRow = `<li><a id="link_profile" href="Profile.html?userid=${items.UserID}"><span class="glyphicon glyphicon-user"></span> Hey, ${data.Email}</a></li>`;
-                $('#ul_profile').append(liRow);
-            },
-            error: function () {
-                console.log('error');
-            }
-        });
+
+        $('#ul_profile > li').hide();
+        var liRow = `<li><a id="link_profile" href="Profile.html?userid=${items.UserID}"><span class="glyphicon glyphicon-user"></span> Hey, ${items.Email}</a></li>`;
+        $('#ul_profile').append(liRow);
 
     }
     else {
