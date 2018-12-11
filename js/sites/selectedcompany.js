@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/companies/" + param,
+            url: "https://companyratesapi.azurewebsites.net/api/companies/" + param,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
 
                 $.ajax({
-                    url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews/" + param,
+                    url: "https://companyratesapi.azurewebsites.net/api/reviews/" + param,
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
@@ -79,7 +79,7 @@ $(document).ready(function () {
             };
 
             $.ajax({
-                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/votecompanies?sessionkey=" + items.SessionKey,
+                url: "https://companyratesapi.azurewebsites.net/api/votecompanies?sessionkey=" + items.SessionKey,
                 type: 'POST',
                 dataType: 'json',
                 data: companyThumbDownData,
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 Value: -1
             };
             $.ajax({
-                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/votecompanies?sessionkey=" + items.SessionKey,
+                url: "https://companyratesapi.azurewebsites.net/api/votecompanies?sessionkey=" + items.SessionKey,
                 type: 'POST',
                 dataType: 'json',
                 data: companyThumbUpData,
@@ -158,7 +158,7 @@ $(document).ready(function () {
             }
 
             $.ajax({
-                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews?sessionkey=" + items.SessionKey,
+                url: "https://companyratesapi.azurewebsites.net/api/reviews?sessionkey=" + items.SessionKey,
                 type: 'POST',
                 dataType: 'json',
                 data: reviewData,
@@ -189,7 +189,7 @@ $(document).ready(function () {
                     TotalRating: company.TotalRating
                 };
                 $.ajax({
-                    url: `https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/Companies/${company.CompanyID}?sessionkey=${items.SessionKey}`,
+                    url: `https://companyratesapi.azurewebsites.net/api/Companies/${company.CompanyID}?sessionkey=${items.SessionKey}`,
                     type: 'PUT',
                     dataType: 'json',
                     data: object,
@@ -207,7 +207,7 @@ $(document).ready(function () {
         $("#btn_removeCompany").click(function () {
             if (items.isAdmin == true) {
                 $.ajax({
-                    url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/companies/" + param + "?sessionkey=" + items.SessionKey,
+                    url: "https://companyratesapi.azurewebsites.net/api/companies/" + param + "?sessionkey=" + items.SessionKey,
                     type: 'DELETE',
                     dataType: 'json',
 
@@ -252,7 +252,7 @@ function ThumbsDownReview(el) {
     };
 
     $.ajax({
-        url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/votereviews?sessionkey=" + items.SessionKey,
+        url: "https://companyratesapi.azurewebsites.net/api/votereviews?sessionkey=" + items.SessionKey,
         type: 'POST',
         dataType: 'json',
         data: ReviewThumbDownData,
@@ -287,7 +287,7 @@ function ThumbsUpReview(el) {
     };
 
     $.ajax({
-        url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/votereviews?sessionkey=" + items.SessionKey,
+        url: "https://companyratesapi.azurewebsites.net/api/votereviews?sessionkey=" + items.SessionKey,
         type: 'POST',
         dataType: 'json',
         data: ReviewThumbDownData,
@@ -315,7 +315,7 @@ function RemoveReview(el) {
     let items = getStorageItems();
     if (items.isAdmin == true) {
         $.ajax({
-            url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/reviews/" + id + "?sessionkey=" + items.SessionKey,
+            url: "https://companyratesapi.azurewebsites.net/api/reviews/" + id + "?sessionkey=" + items.SessionKey,
             type: 'DELETE',
             dataType: 'json',
 

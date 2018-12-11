@@ -22,14 +22,14 @@ $(document).ready(function () {
                 isCompany: true
             }
             $.ajax({
-                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/users/",
+                url: "https://companyratesapi.azurewebsites.net/api/users/",
                 type: 'POST',
                 dataType: 'json',
                 data: data,
                 success: function (responseUser) {
 
                     $.ajax({
-                        url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/accounts/login",
+                        url: "https://companyratesapi.azurewebsites.net/api/accounts/login",
                         type: 'POST',
                         data: data,
                         dataType: 'json',
@@ -56,7 +56,7 @@ $(document).ready(function () {
                             }
 
                             $.ajax({
-                                url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/companies?sessionkey=" + responseLogin.SessionKey,
+                                url: "https://companyratesapi.azurewebsites.net/api/companies?sessionkey=" + responseLogin.SessionKey,
                                 type: 'POST',
                                 dataType: 'json',
                                 data: companyData,

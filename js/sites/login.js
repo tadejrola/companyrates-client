@@ -10,7 +10,7 @@ $(document).ready(function () {
         user.passwordHash = passHash;
 
         $.ajax({
-            url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/accounts/login",
+            url: "https://companyratesapi.azurewebsites.net/api/accounts/login",
             type: 'POST',
             data: user,
             dataType: 'json',

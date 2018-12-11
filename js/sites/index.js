@@ -3,7 +3,7 @@ $(document).ready(function () {
     let companies = [];
     showLoggedInUser();
     $.ajax({
-        url: "https://companyratesapi-prod.eu-west-2.elasticbeanstalk.com/api/companies",
+        url: "https://companyratesapi.azurewebsites.net/api/companies",
         type: 'GET',
         dataType: 'json',
         success: function (data) {
